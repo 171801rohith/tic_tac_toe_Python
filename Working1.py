@@ -8,7 +8,7 @@ class Work1:
 
     def start(self):
         self.board.showB()
-        for self.i in range(0, len(self.board.coord)):
+        for self.i in range(0, len(self.board.coord) + 1):
             if not (
                 (
                     self.board.coord[0] == self.board.coord[1]
@@ -44,7 +44,7 @@ class Work1:
                 )
             ) and (int(self.i) % 2 == 0):
                 self.board.PutX()
-                self.count = 1
+                self.count += 1
             elif not (
                 (
                     self.board.coord[0] == self.board.coord[1]
@@ -79,18 +79,16 @@ class Work1:
                     and self.board.coord[4] == self.board.coord[6]
                 )
             ) and (int(self.i) % 2 != 0):
-                self.board.PutO()
-                self.count = 2
+                if self.i < len(self.board.coord):
+                    self.board.PutO()
+                self.count += 1
 
             else:
                 break
-            
-            if(self.i == len(self.board.coord) - 1):
-                self.count = 0
 
-        if self.count == 0:
-            print("Draw")
-        elif self.count == 1:
+        if self.count % 2 != 0:
             print("X wins")
-        elif self.count == 2:
+        elif self.count == 10:
+            print("Draw")
+        elif self.count % 2 == 0:
             print("O wins")

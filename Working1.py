@@ -87,8 +87,9 @@ class Work1:
                 break
 
         if self.count % 2 != 0:
-            print("X wins")
+            print("Player 1 'X' Wins :)")
         elif self.count == 10:
-            print("Draw")
+            print("Game Draw :(")
         elif self.count % 2 == 0:
-            print("O wins")
+            print("Player 2 'O' Wins :)")
+            
